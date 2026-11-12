@@ -32,3 +32,6 @@ server/batloung_fruits_backup.sql
 server/current_schema.sql
 node_modules/
 dist/
+
+# Local Netlify folder
+.netlify
