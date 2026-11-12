@@ -1,8 +1,7 @@
 ﻿import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../components/ThemeToggle';
-
-const API_URL = 'http://localhost:5001/api';
+import { API_URL } from '../api';
 
 export default function Login() {
   const [email, setEmail] = useState('');

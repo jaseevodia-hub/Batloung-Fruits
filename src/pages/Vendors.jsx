@@ -2,13 +2,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { apiFetch } from "../api";
+import { apiFetch, API_URL } from "../api";
 import useTableFilter from "../hooks/useTableFilter";
 import { TableFilter } from "../components/TableFilter";
 import Modal from "../components/Modal";
 import { DeleteIcon, EditIcon, ViewIcon } from "../components/ActionIcons";
 
-const API_URL = "http://localhost:5001/api";
 const NOMINATIM_URL = "https://nominatim.openstreetmap.org";
 const NOMINATIM_HEADERS = { Accept: "application/json" };
 

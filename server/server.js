@@ -3,9 +3,13 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import bcrypt from "bcryptjs";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import db from "./db.js";
 import authRouter from "./auth.js";
 import { authenticate, requireRole } from "./middleware.js";
+import { ensureDatabaseReady } from "./bootstrap.js";
 
 dotenv.config();
 
@@ -2359,8 +2363,29 @@ app.get("/api/dashboard", async (req, res) => {
 });
 
 // ==================================================
-// START SERVER — KEEP THIS AT THE VERY BOTTOM
+// SERVE THE BUILT FRONTEND (production)
 // ==================================================
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const distDir = path.join(__dirname, "..", "dist");
+
+if (fs.existsSync(distDir)) {
+  app.use(express.static(distDir));
+
+  app.use((req, res, next) => {
+    if (req.method !== "GET" || req.path.startsWith("/api")) {
+      return next();
+    }
+
+    res.sendFile(path.join(distDir, "index.html"));
+  });
+}
+
+// ==================================================
+// START SERVER - KEEP THIS AT THE VERY BOTTOM
+// ==================================================
+
+await ensureDatabaseReady();
 
 app.listen(PORT, () => {
   console.log(

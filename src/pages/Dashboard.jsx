@@ -2,9 +2,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import StatCard from "../components/StatCard";
-import { apiFetch } from "../api";
+import { apiFetch, API_URL } from "../api";
 
-const API_URL = "http://localhost:5001/api";
 
 const money = (amount) =>
   `M ${Number(amount || 0).toLocaleString("en-LS", {

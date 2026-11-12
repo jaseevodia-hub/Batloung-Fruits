@@ -1,12 +1,11 @@
 
 import { useEffect, useState } from "react";
-import { apiFetch } from "./api";
+import { apiFetch, API_URL as API } from "./api";
 import useTableFilter from "./hooks/useTableFilter";
 import { TableFilter } from "./components/TableFilter";
 import Modal from "./components/Modal";
 import { ViewIcon } from "./components/ActionIcons";
 
-const API = "http://localhost:5001/api";
 
 const orderFilterColumns = [
   { key: "order_number", label: "Order Number" },

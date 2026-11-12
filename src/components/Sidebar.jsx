@@ -2,9 +2,8 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
-import { apiFetch, getUser, isAdmin, logout } from "../api";
+import { apiFetch, getUser, isAdmin, logout, API_URL } from "../api";
 
-const API_URL = "http://localhost:5001/api";
 
 const iconProps = {
   viewBox: "0 0 24 24",

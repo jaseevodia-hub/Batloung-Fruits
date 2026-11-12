@@ -1,12 +1,11 @@
 
 import { useEffect, useState } from "react";
-import { apiFetch, isAdmin } from "../api";
+import { apiFetch, isAdmin, API_URL } from "../api";
 import useTableFilter from "../hooks/useTableFilter";
 import { TableFilter } from "../components/TableFilter";
 import Modal from "../components/Modal";
 import { DeleteIcon, EditIcon } from "../components/ActionIcons";
 
-const API_URL = "http://localhost:5001/api";
 
 const emptyForm = {
   supplier_name: "",

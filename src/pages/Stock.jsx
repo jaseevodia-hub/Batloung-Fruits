@@ -1,12 +1,11 @@
 
 import { useEffect, useState } from "react";
-import { apiFetch, isAdmin } from "../api";
+import { apiFetch, isAdmin, API_URL as API } from "../api";
 import useTableFilter from "../hooks/useTableFilter";
 import { TableFilter } from "../components/TableFilter";
 import Modal from "../components/Modal";
 import { DeleteIcon, EditIcon } from "../components/ActionIcons";
 
-const API = "http://localhost:5001/api";
 
 const today = () => new Date().toISOString().slice(0, 10);
 

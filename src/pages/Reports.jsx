@@ -1,11 +1,10 @@
 ﻿import { useEffect, useMemo, useState } from "react";
-import { apiFetch } from "../api";
+import { apiFetch, API_URL as API } from "../api";
 import useTableFilter from "../hooks/useTableFilter";
 import { TableFilter } from "../components/TableFilter";
 import Modal from "../components/Modal";
 import { BarList, DonutChart, TrendChart } from "../components/Charts";
 
-const API = "http://localhost:5001/api";
 
 const CHART_COLORS = [
   "#22855b",
